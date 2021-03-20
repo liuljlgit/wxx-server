@@ -1,0 +1,37 @@
+spring:
+  redis:
+    database: 0
+    host: ${REDIS.HOST:localhost}
+    port: 6379
+    password:
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    ds1: #数据源1
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://${MYSQL.HOST:localhost}:3306/${MYSQL.DATABASE:framework}?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      username: ${MYSQL.USERNAME:root}
+      password: ${MYSQL.PASSWORD:root}
+    ds2: #数据源2
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://${MYSQL.HOST:localhost}:3306/${MYSQL.DATABASE:security}?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      username: ${MYSQL.USERNAME:root}
+      password: ${MYSQL.PASSWORD:root}
+    ds3: #数据源3
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://${MYSQL.HOST:10.172.54.57}:3377/${MYSQL.DATABASE:prod_bee_dord_guangdong}?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      username: ${MYSQL.USERNAME:wxx}
+      password: ${MYSQL.PASSWORD:Wxx_2018}
+server: #端口号
+  port: 40001
+#mybatis: #mybatis配置
+#  type-aliases-package: com.cloud.**.entity             #映射实体地址
+#  mapper-locations: classpath:mybatis/mapper/**/*.xml   #xml配置文件地址
+#  configuration:
+#    jdbc-type-for-null: null                            #当传入null的时候对应的jdbctype
+#  config-location: classpath:mybatis/mybatis-config.xml #mybatis全局配置

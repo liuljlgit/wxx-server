@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.wxxserver.wxxserver.dao.wxx.IOcOrderCustGroupHDao">
+    <resultMap id="BaseResultMap" type="com.cloud.wxxserver.wxxserver.entity.OcOrderCustGroupH">
+        <id column="order_id" jdbcType="BIGINT" property="orderId" />
+        <result column="pspt_type_code" jdbcType="CHAR" property="psptTypeCode" />
+        <result column="pspt_end_date" jdbcType="VARCHAR" property="psptEndDate" />
+        <result column="pspt_addr" jdbcType="VARCHAR" property="psptAddr" />
+        <result column="send_dept" jdbcType="VARCHAR" property="sendDept" />
+        <result column="post_address" jdbcType="VARCHAR" property="postAddress" />
+        <result column="post_code" jdbcType="CHAR" property="postCode" />
+        <result column="taxpayer_code" jdbcType="VARCHAR" property="taxpayerCode" />
+        <result column="taxpayer_type" jdbcType="CHAR" property="taxpayerType" />
+        <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+        <result column="cust_phone" jdbcType="VARCHAR" property="custPhone" />
+        <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+        <result column="group_number" jdbcType="VARCHAR" property="groupNumber" />
+        <result column="group_number_name" jdbcType="VARCHAR" property="groupNumberName" />
+        <result column="group_ext_num" jdbcType="VARCHAR" property="groupExtNum" />
+        <result column="group_user_id" jdbcType="BIGINT" property="groupUserId" />
+        <result column="photo1_url" jdbcType="VARCHAR" property="photo1Url" />
+        <result column="photo2_url" jdbcType="VARCHAR" property="photo2Url" />
+        <result column="photo3_url" jdbcType="VARCHAR" property="photo3Url" />
+        <result column="cust_id" jdbcType="BIGINT" property="custId" />
+        <result column="cust_type" jdbcType="CHAR" property="custType" />
+        <result column="grp_cust_level" jdbcType="CHAR" property="grpCustLevel" />
+        <result column="contact_person" jdbcType="VARCHAR" property="contactPerson" />
+        <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
+        <result column="contact_email" jdbcType="VARCHAR" property="contactEmail" />
+        <result column="calling_type_code" jdbcType="VARCHAR" property="callingTypeCode" />
+        <result column="province_code" jdbcType="VARCHAR" property="provinceCode" />
+        <result column="eparchy_code" jdbcType="VARCHAR" property="eparchyCode" />
+        <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+        <result column="oper_type" jdbcType="VARCHAR" property="operType" />
+        <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,order_line_id,pspt_type_code,pspt_id,pspt_end_date,pspt_addr,send_dept,post_address,post_code,taxpayer_code,taxpayer_type,cust_name,cust_phone,group_id,group_number,group_number_name,group_ext_num,group_user_id,photo1_url,photo2_url,photo3_url,cust_id,cust_type,grp_cust_level,contact_person,contact_phone,contact_email,calling_type_code,province_code,eparchy_code,city_code,oper_type,oper_time
+    </sql>
+
+    <sql id="Base_Object_List">
+        #{at.orderId},#{at.orderLineId},#{at.psptTypeCode},#{at.psptId},#{at.psptEndDate},#{at.psptAddr},#{at.sendDept},#{at.postAddress},#{at.postCode},#{at.taxpayerCode},#{at.taxpayerType},#{at.custName},#{at.custPhone},#{at.groupId},#{at.groupNumber},#{at.groupNumberName},#{at.groupExtNum},#{at.groupUserId},#{at.photo1Url},#{at.photo2Url},#{at.photo3Url},#{at.custId},#{at.custType},#{at.grpCustLevel},#{at.contactPerson},#{at.contactPhone},#{at.contactEmail},#{at.callingTypeCode},#{at.provinceCode},#{at.eparchyCode},#{at.cityCode},#{at.operType},#{at.operTime}
+    </sql>
+
+    <sql id="Set_Not_Null_List">
+        <set>
+            <if test="ut.orderId != null">
+                order_id = #{ut.orderId},
+            </if>
+            <if test="ut.orderLineId != null">
+                order_line_id = #{ut.orderLineId},
+            </if>
+            <if test="ut.psptTypeCode != null">
+                pspt_type_code = #{ut.psptTypeCode},
+            </if>
+            <if test="ut.psptId != null">
+                pspt_id = #{ut.psptId},
+            </if>
+            <if test="ut.psptEndDate != null">
+                pspt_end_date = #{ut.psptEndDate},
+            </if>
+            <if test="ut.psptAddr != null">
+                pspt_addr = #{ut.psptAddr},
+            </if>
+            <if test="ut.sendDept != null">
+                send_dept = #{ut.sendDept},
+            </if>
+            <if test="ut.postAddress != null">
+                post_address = #{ut.postAddress},
+            </if>
+            <if test="ut.postCode != null">
+                post_code = #{ut.postCode},
+            </if>
+            <if test="ut.taxpayerCode != null">
+                taxpayer_code = #{ut.taxpayerCode},
+            </if>
+            <if test="ut.taxpayerType != null">
+                taxpayer_type = #{ut.taxpayerType},
+            </if>
+            <if test="ut.custName != null">
+                cust_name = #{ut.custName},
+            </if>
+            <if test="ut.custPhone != null">
+                cust_phone = #{ut.custPhone},
+            </if>
+            <if test="ut.groupId != null">
+                group_id = #{ut.groupId},
+            </if>
+            <if test="ut.groupNumber != null">
+                group_number = #{ut.groupNumber},
+            </if>
+            <if test="ut.groupNumberName != null">
+                group_number_name = #{ut.groupNumberName},
+            </if>
+            <if test="ut.groupExtNum != null">
+                group_ext_num = #{ut.groupExtNum},
+            </if>
+            <if test="ut.groupUserId != null">
+                group_user_id = #{ut.groupUserId},
+            </if>
+            <if test="ut.photo1Url != null">
+                photo1_url = #{ut.photo1Url},
+            </if>
+            <if test="ut.photo2Url != null">
+                photo2_url = #{ut.photo2Url},
+            </if>
+            <if test="ut.photo3Url != null">
+                photo3_url = #{ut.photo3Url},
+            </if>
+            <if test="ut.custId != null">
+                cust_id = #{ut.custId},
+            </if>
+            <if test="ut.custType != null">
+                cust_type = #{ut.custType},
+            </if>
+            <if test="ut.grpCustLevel != null">
+                grp_cust_level = #{ut.grpCustLevel},
+            </if>
+            <if test="ut.contactPerson != null">
+                contact_person = #{ut.contactPerson},
+            </if>
+            <if test="ut.contactPhone != null">
+                contact_phone = #{ut.contactPhone},
+            </if>
+            <if test="ut.contactEmail != null">
+                contact_email = #{ut.contactEmail},
+            </if>
+            <if test="ut.callingTypeCode != null">
+                calling_type_code = #{ut.callingTypeCode},
+            </if>
+            <if test="ut.provinceCode != null">
+                province_code = #{ut.provinceCode},
+            </if>
+            <if test="ut.eparchyCode != null">
+                eparchy_code = #{ut.eparchyCode},
+            </if>
+            <if test="ut.cityCode != null">
+                city_code = #{ut.cityCode},
+            </if>
+            <if test="ut.operType != null">
+                oper_type = #{ut.operType},
+            </if>
+            <if test="ut.operTime != null">
+                oper_time = #{ut.operTime}
+            </if>
+        </set>
+    </sql>
+
+    <sql id="Set_With_Null_List">
+        <set>
+            order_id = #{ut.orderId},
+            order_line_id = #{ut.orderLineId},
+            pspt_type_code = #{ut.psptTypeCode},
+            pspt_id = #{ut.psptId},
+            pspt_end_date = #{ut.psptEndDate},
+            pspt_addr = #{ut.psptAddr},
+            send_dept = #{ut.sendDept},
+            post_address = #{ut.postAddress},
+            post_code = #{ut.postCode},
+            taxpayer_code = #{ut.taxpayerCode},
+            taxpayer_type = #{ut.taxpayerType},
+            cust_name = #{ut.custName},
+            cust_phone = #{ut.custPhone},
+            group_id = #{ut.groupId},
+            group_number = #{ut.groupNumber},
+            group_number_name = #{ut.groupNumberName},
+            group_ext_num = #{ut.groupExtNum},
+            group_user_id = #{ut.groupUserId},
+            photo1_url = #{ut.photo1Url},
+            photo2_url = #{ut.photo2Url},
+            photo3_url = #{ut.photo3Url},
+            cust_id = #{ut.custId},
+            cust_type = #{ut.custType},
+            grp_cust_level = #{ut.grpCustLevel},
+            contact_person = #{ut.contactPerson},
+            contact_phone = #{ut.contactPhone},
+            contact_email = #{ut.contactEmail},
+            calling_type_code = #{ut.callingTypeCode},
+            province_code = #{ut.provinceCode},
+            eparchy_code = #{ut.eparchyCode},
+            city_code = #{ut.cityCode},
+            oper_type = #{ut.operType},
+            oper_time = #{ut.operTime}
+        </set>
+    </sql>
+
+    <sql id="For_Each_Condition">
+        <foreach collection="conditGroup.conditions" item="condit">
+            <choose>
+                <when test="condit.noValue">
+                ${condit.condition}
+                </when>
+                <when test="condit.oneValue">
+                ${condit.condition} #{condit.value1}
+                </when>
+                <when test="condit.secondValue">
+                ${condit.condition} #{condit.value1} and #{condit.value2}
+                </when>
+                <when test="condit.listValue">
+                ${condit.condition}
+                    <foreach collection="condit.list" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                    </foreach>
+                </when>
+            </choose>
+        </foreach>
+    </sql>
+
+    <sql id="where_sql">
+        <if test="st.orderId != null">
+            AND order_id = #{st.orderId}
+        </if>
+        <if test="st.orderLineId != null">
+            AND order_line_id = #{st.orderLineId}
+        </if>
+        <if test="st.psptTypeCode != null">
+            AND pspt_type_code = #{st.psptTypeCode}
+        </if>
+        <if test="st.psptId != null">
+            AND pspt_id = #{st.psptId}
+        </if>
+        <if test="st.psptEndDate != null">
+            AND pspt_end_date = #{st.psptEndDate}
+        </if>
+        <if test="st.psptAddr != null">
+            AND pspt_addr = #{st.psptAddr}
+        </if>
+        <if test="st.sendDept != null">
+            AND send_dept = #{st.sendDept}
+        </if>
+        <if test="st.postAddress != null">
+            AND post_address = #{st.postAddress}
+        </if>
+        <if test="st.postCode != null">
+            AND post_code = #{st.postCode}
+        </if>
+        <if test="st.taxpayerCode != null">
+            AND taxpayer_code = #{st.taxpayerCode}
+        </if>
+        <if test="st.taxpayerType != null">
+            AND taxpayer_type = #{st.taxpayerType}
+        </if>
+        <if test="st.custName != null">
+            AND cust_name = #{st.custName}
+        </if>
+        <if test="st.custPhone != null">
+            AND cust_phone = #{st.custPhone}
+        </if>
+        <if test="st.groupId != null">
+            AND group_id = #{st.groupId}
+        </if>
+        <if test="st.groupNumber != null">
+            AND group_number = #{st.groupNumber}
+        </if>
+        <if test="st.groupNumberName != null">
+            AND group_number_name = #{st.groupNumberName}
+        </if>
+        <if test="st.groupExtNum != null">
+            AND group_ext_num = #{st.groupExtNum}
+        </if>
+        <if test="st.groupUserId != null">
+            AND group_user_id = #{st.groupUserId}
+        </if>
+        <if test="st.photo1Url != null">
+            AND photo1_url = #{st.photo1Url}
+        </if>
+        <if test="st.photo2Url != null">
+            AND photo2_url = #{st.photo2Url}
+        </if>
+        <if test="st.photo3Url != null">
+            AND photo3_url = #{st.photo3Url}
+        </if>
+        <if test="st.custId != null">
+            AND cust_id = #{st.custId}
+        </if>
+        <if test="st.custType != null">
+            AND cust_type = #{st.custType}
+        </if>
+        <if test="st.grpCustLevel != null">
+            AND grp_cust_level = #{st.grpCustLevel}
+        </if>
+        <if test="st.contactPerson != null">
+            AND contact_person = #{st.contactPerson}
+        </if>
+        <if test="st.contactPhone != null">
+            AND contact_phone = #{st.contactPhone}
+        </if>
+        <if test="st.contactEmail != null">
+            AND contact_email = #{st.contactEmail}
+        </if>
+        <if test="st.callingTypeCode != null">
+            AND calling_type_code = #{st.callingTypeCode}
+        </if>
+        <if test="st.provinceCode != null">
+            AND province_code = #{st.provinceCode}
+        </if>
+        <if test="st.eparchyCode != null">
+            AND eparchy_code = #{st.eparchyCode}
+        </if>
+        <if test="st.cityCode != null">
+            AND city_code = #{st.cityCode}
+        </if>
+        <if test="st.operType != null">
+            AND oper_type = #{st.operType}
+        </if>
+        <if test="st.operTime != null">
+            AND oper_time = #{st.operTime}
+        </if>
+        <if test="st.conditGroups != null">
+            <foreach collection="st.conditGroups" item="conditGroup" separator=" ">
+                <if test="conditGroup.valid">
+                    ${conditGroup.opt}
+                    <choose>
+                        <when test="conditGroup.conditions.size() > 1">
+                            <trim prefix="(" prefixOverrides="and|or" suffix=")">
+                                <include refid="For_Each_Condition" />
+                            </trim>
+                        </when>
+                        <otherwise>
+                            <trim prefixOverrides="and|or">
+                                <include refid="For_Each_Condition" />
+                            </trim>
+                        </otherwise>
+                    </choose>
+                </if>
+            </foreach>
+        </if>
+    </sql>
+
+    <!--获取最大的主键-->
+    <select id="selectMaxId" resultType="java.lang.Long">
+        select IFNULL(max(order_id), 0) from `oc_order_cust_group_h`
+    </select>
+
+    <!--根据主键获取对象-->
+    <select id="selectById" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_cust_group_h
+        <where>
+            AND order_id = #{orderId}
+        </where>
+    </select>
+
+    <!--查询列表-->
+    <select id="selectList" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_cust_group_h
+        <where>
+            <include refid="where_sql" />
+        </where>
+        <if test="st.orderByList!=null and st.orderByList.size() > 0">
+            order by
+            <foreach collection="st.orderByList" item="order" separator=",">
+                ${order.field} ${order.mode}
+            </foreach>
+        </if>
+        <if test="st.index != null and st.pageSize != null and st.pageSize > 0" >
+            limit #{st.index},#{st.pageSize}
+        </if>
+    </select>
+
+    <!--查询列表-->
+    <select id="selectFieldList" resultMap="BaseResultMap">
+        select
+        <foreach collection="fl" item="field" separator=",">
+            ${field}
+        </foreach>
+        from oc_order_cust_group_h
+        <where>
+            <include refid="where_sql" />
+        </where>
+        <if test="st.orderByList!=null and st.orderByList.size() > 0">
+            order by
+            <foreach collection="st.orderByList" item="order" separator=",">
+            ${order.field} ${order.mode}
+            </foreach>
+        </if>
+        <if test="st.index != null and st.pageSize != null and st.pageSize > 0" >
+            limit #{st.index},#{st.pageSize}
+        </if>
+    </select>
+
+    <!--查询列表总数-->
+    <select id="selectCount" resultType="java.lang.Long">
+        select count(1) from oc_order_cust_group_h
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </select>
+
+    <!--根据ID列表获取记录列表-->
+    <select id="selectBatchIds" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_cust_group_h
+        <where>
+        order_id in
+            <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item}
+            </foreach>
+        </where>
+    </select>
+
+    <!--插入对象-->
+    <insert id="add">
+        insert into oc_order_cust_group_h(<include refid="Base_Column_List" />)
+        values(<include refid="Base_Object_List" />)
+    </insert>
+
+    <!--批量插入对象-->
+    <insert id="addBatch">
+        insert into oc_order_cust_group_h(<include refid="Base_Column_List" />)
+        values
+        <foreach collection="list" index="index" item="at" separator=",">
+            (<include refid="Base_Object_List" />)
+        </foreach>
+    </insert>
+
+    <!--更新对象-->
+    <update id="updateNotNull">
+        update oc_order_cust_group_h
+        <include refid="Set_Not_Null_List" />
+        <where>
+            AND order_id = #{ut.orderId}
+        </where>
+    </update>
+
+    <!--批量更新对象-->
+    <update id="updateBatchNotNull">
+        <foreach collection="list" separator=";" item="ut">
+            update oc_order_cust_group_h
+            <include refid="Set_Not_Null_List" />
+            <where>
+                AND order_id = #{ut.orderId}
+            </where>
+        </foreach>
+    </update>
+
+    <!--更新对象(全更新)-->
+    <update id="updateWithNull">
+        update oc_order_cust_group_h
+        <include refid="Set_With_Null_List" />
+        <where>
+            AND order_id = #{ut.orderId}
+        </where>
+    </update>
+
+    <!--批量更新对象(全更新)-->
+    <update id="updateBatchWithNull">
+        <foreach collection="list" separator=";" item="ut">
+            update oc_order_cust_group_h
+            <include refid="Set_With_Null_List" />
+            <where>
+                AND order_id = #{ut.orderId}
+            </where>
+        </foreach>
+    </update>
+
+    <!--更新对象,根据查询条件更新-->
+    <update id="updateByMap">
+        update oc_order_cust_group_h
+        <set>
+            <foreach collection="um" index="key" item="value" separator=",">
+                ${key} = #{value}
+            </foreach>
+        </set>
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </update>
+
+    <!--根据查询条件删除记录-->
+    <delete id="delete">
+        delete from oc_order_cust_group_h
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </delete>
+
+    <!--根据主键删除对象-->
+    <delete id="deleteById">
+        delete from oc_order_cust_group_h
+        <where>
+            AND order_id = #{orderId}
+        </where>
+    </delete>
+
+    <!-- 批量删除对象 -->
+    <delete id="deleteBatchIds">
+        delete from oc_order_cust_group_h
+        <where>
+            order_id in
+            <foreach collection="list" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </where>
+    </delete>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~ custom code begin ~~~~~~~~~~~~~~~~~~~~~~-->
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~ custom code end ~~~~~~~~~~~~~~~~~~~~~~-->
+
+</mapper>

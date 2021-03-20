@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.wxxserver.wxxserver.dao.wxx.IOcOrderEvalDao">
+    <resultMap id="BaseResultMap" type="com.cloud.wxxserver.wxxserver.entity.OcOrderEval">
+        <id column="comment_id" jdbcType="BIGINT" property="commentId" />
+        <result column="eval_type" jdbcType="VARCHAR" property="evalType" />
+        <result column="eval_score" jdbcType="INTEGER" property="evalScore" />
+        <result column="eval_tags" jdbcType="VARCHAR" property="evalTags" />
+        <result column="eval_comment" jdbcType="VARCHAR" property="evalComment" />
+        <result column="eval_time" jdbcType="TIMESTAMP" property="evalTime" />
+        <result column="eval_userid" jdbcType="VARCHAR" property="evalUserid" />
+        <result column="eval_username" jdbcType="VARCHAR" property="evalUsername" />
+        <result column="province_code" jdbcType="VARCHAR" property="provinceCode" />
+        <result column="eparchy_code" jdbcType="VARCHAR" property="eparchyCode" />
+        <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+        <result column="eval_channel" jdbcType="VARCHAR" property="evalChannel" />
+        <result column="eval_comm" jdbcType="BIGINT" property="evalComm" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        comment_id,order_id,order_line_id,eval_type,eval_score,eval_tags,eval_comment,eval_time,eval_userid,eval_username,province_code,eparchy_code,city_code,eval_channel,eval_comm
+    </sql>
+
+    <sql id="Base_Object_List">
+        #{at.commentId},#{at.orderId},#{at.orderLineId},#{at.evalType},#{at.evalScore},#{at.evalTags},#{at.evalComment},#{at.evalTime},#{at.evalUserid},#{at.evalUsername},#{at.provinceCode},#{at.eparchyCode},#{at.cityCode},#{at.evalChannel},#{at.evalComm}
+    </sql>
+
+    <sql id="Set_Not_Null_List">
+        <set>
+            <if test="ut.commentId != null">
+                comment_id = #{ut.commentId},
+            </if>
+            <if test="ut.orderId != null">
+                order_id = #{ut.orderId},
+            </if>
+            <if test="ut.orderLineId != null">
+                order_line_id = #{ut.orderLineId},
+            </if>
+            <if test="ut.evalType != null">
+                eval_type = #{ut.evalType},
+            </if>
+            <if test="ut.evalScore != null">
+                eval_score = #{ut.evalScore},
+            </if>
+            <if test="ut.evalTags != null">
+                eval_tags = #{ut.evalTags},
+            </if>
+            <if test="ut.evalComment != null">
+                eval_comment = #{ut.evalComment},
+            </if>
+            <if test="ut.evalTime != null">
+                eval_time = #{ut.evalTime},
+            </if>
+            <if test="ut.evalUserid != null">
+                eval_userid = #{ut.evalUserid},
+            </if>
+            <if test="ut.evalUsername != null">
+                eval_username = #{ut.evalUsername},
+            </if>
+            <if test="ut.provinceCode != null">
+                province_code = #{ut.provinceCode},
+            </if>
+            <if test="ut.eparchyCode != null">
+                eparchy_code = #{ut.eparchyCode},
+            </if>
+            <if test="ut.cityCode != null">
+                city_code = #{ut.cityCode},
+            </if>
+            <if test="ut.evalChannel != null">
+                eval_channel = #{ut.evalChannel},
+            </if>
+            <if test="ut.evalComm != null">
+                eval_comm = #{ut.evalComm}
+            </if>
+        </set>
+    </sql>
+
+    <sql id="Set_With_Null_List">
+        <set>
+            comment_id = #{ut.commentId},
+            order_id = #{ut.orderId},
+            order_line_id = #{ut.orderLineId},
+            eval_type = #{ut.evalType},
+            eval_score = #{ut.evalScore},
+            eval_tags = #{ut.evalTags},
+            eval_comment = #{ut.evalComment},
+            eval_time = #{ut.evalTime},
+            eval_userid = #{ut.evalUserid},
+            eval_username = #{ut.evalUsername},
+            province_code = #{ut.provinceCode},
+            eparchy_code = #{ut.eparchyCode},
+            city_code = #{ut.cityCode},
+            eval_channel = #{ut.evalChannel},
+            eval_comm = #{ut.evalComm}
+        </set>
+    </sql>
+
+    <sql id="For_Each_Condition">
+        <foreach collection="conditGroup.conditions" item="condit">
+            <choose>
+                <when test="condit.noValue">
+                ${condit.condition}
+                </when>
+                <when test="condit.oneValue">
+                ${condit.condition} #{condit.value1}
+                </when>
+                <when test="condit.secondValue">
+                ${condit.condition} #{condit.value1} and #{condit.value2}
+                </when>
+                <when test="condit.listValue">
+                ${condit.condition}
+                    <foreach collection="condit.list" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                    </foreach>
+                </when>
+            </choose>
+        </foreach>
+    </sql>
+
+    <sql id="where_sql">
+        <if test="st.commentId != null">
+            AND comment_id = #{st.commentId}
+        </if>
+        <if test="st.orderId != null">
+            AND order_id = #{st.orderId}
+        </if>
+        <if test="st.orderLineId != null">
+            AND order_line_id = #{st.orderLineId}
+        </if>
+        <if test="st.evalType != null">
+            AND eval_type = #{st.evalType}
+        </if>
+        <if test="st.evalScore != null">
+            AND eval_score = #{st.evalScore}
+        </if>
+        <if test="st.evalTags != null">
+            AND eval_tags = #{st.evalTags}
+        </if>
+        <if test="st.evalComment != null">
+            AND eval_comment = #{st.evalComment}
+        </if>
+        <if test="st.evalTime != null">
+            AND eval_time = #{st.evalTime}
+        </if>
+        <if test="st.evalUserid != null">
+            AND eval_userid = #{st.evalUserid}
+        </if>
+        <if test="st.evalUsername != null">
+            AND eval_username = #{st.evalUsername}
+        </if>
+        <if test="st.provinceCode != null">
+            AND province_code = #{st.provinceCode}
+        </if>
+        <if test="st.eparchyCode != null">
+            AND eparchy_code = #{st.eparchyCode}
+        </if>
+        <if test="st.cityCode != null">
+            AND city_code = #{st.cityCode}
+        </if>
+        <if test="st.evalChannel != null">
+            AND eval_channel = #{st.evalChannel}
+        </if>
+        <if test="st.evalComm != null">
+            AND eval_comm = #{st.evalComm}
+        </if>
+        <if test="st.conditGroups != null">
+            <foreach collection="st.conditGroups" item="conditGroup" separator=" ">
+                <if test="conditGroup.valid">
+                    ${conditGroup.opt}
+                    <choose>
+                        <when test="conditGroup.conditions.size() > 1">
+                            <trim prefix="(" prefixOverrides="and|or" suffix=")">
+                                <include refid="For_Each_Condition" />
+                            </trim>
+                        </when>
+                        <otherwise>
+                            <trim prefixOverrides="and|or">
+                                <include refid="For_Each_Condition" />
+                            </trim>
+                        </otherwise>
+                    </choose>
+                </if>
+            </foreach>
+        </if>
+    </sql>
+
+    <!--获取最大的主键-->
+    <select id="selectMaxId" resultType="java.lang.Long">
+        select IFNULL(max(comment_id), 0) from `oc_order_eval`
+    </select>
+
+    <!--根据主键获取对象-->
+    <select id="selectById" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_eval
+        <where>
+            AND comment_id = #{commentId}
+        </where>
+    </select>
+
+    <!--查询列表-->
+    <select id="selectList" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_eval
+        <where>
+            <include refid="where_sql" />
+        </where>
+        <if test="st.orderByList!=null and st.orderByList.size() > 0">
+            order by
+            <foreach collection="st.orderByList" item="order" separator=",">
+                ${order.field} ${order.mode}
+            </foreach>
+        </if>
+        <if test="st.index != null and st.pageSize != null and st.pageSize > 0" >
+            limit #{st.index},#{st.pageSize}
+        </if>
+    </select>
+
+    <!--查询列表-->
+    <select id="selectFieldList" resultMap="BaseResultMap">
+        select
+        <foreach collection="fl" item="field" separator=",">
+            ${field}
+        </foreach>
+        from oc_order_eval
+        <where>
+            <include refid="where_sql" />
+        </where>
+        <if test="st.orderByList!=null and st.orderByList.size() > 0">
+            order by
+            <foreach collection="st.orderByList" item="order" separator=",">
+            ${order.field} ${order.mode}
+            </foreach>
+        </if>
+        <if test="st.index != null and st.pageSize != null and st.pageSize > 0" >
+            limit #{st.index},#{st.pageSize}
+        </if>
+    </select>
+
+    <!--查询列表总数-->
+    <select id="selectCount" resultType="java.lang.Long">
+        select count(1) from oc_order_eval
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </select>
+
+    <!--根据ID列表获取记录列表-->
+    <select id="selectBatchIds" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from oc_order_eval
+        <where>
+        comment_id in
+            <foreach collection="list" open="(" close=")" separator="," item="item">
+            #{item}
+            </foreach>
+        </where>
+    </select>
+
+    <!--插入对象-->
+    <insert id="add">
+        insert into oc_order_eval(<include refid="Base_Column_List" />)
+        values(<include refid="Base_Object_List" />)
+    </insert>
+
+    <!--批量插入对象-->
+    <insert id="addBatch">
+        insert into oc_order_eval(<include refid="Base_Column_List" />)
+        values
+        <foreach collection="list" index="index" item="at" separator=",">
+            (<include refid="Base_Object_List" />)
+        </foreach>
+    </insert>
+
+    <!--更新对象-->
+    <update id="updateNotNull">
+        update oc_order_eval
+        <include refid="Set_Not_Null_List" />
+        <where>
+            AND comment_id = #{ut.commentId}
+        </where>
+    </update>
+
+    <!--批量更新对象-->
+    <update id="updateBatchNotNull">
+        <foreach collection="list" separator=";" item="ut">
+            update oc_order_eval
+            <include refid="Set_Not_Null_List" />
+            <where>
+                AND comment_id = #{ut.commentId}
+            </where>
+        </foreach>
+    </update>
+
+    <!--更新对象(全更新)-->
+    <update id="updateWithNull">
+        update oc_order_eval
+        <include refid="Set_With_Null_List" />
+        <where>
+            AND comment_id = #{ut.commentId}
+        </where>
+    </update>
+
+    <!--批量更新对象(全更新)-->
+    <update id="updateBatchWithNull">
+        <foreach collection="list" separator=";" item="ut">
+            update oc_order_eval
+            <include refid="Set_With_Null_List" />
+            <where>
+                AND comment_id = #{ut.commentId}
+            </where>
+        </foreach>
+    </update>
+
+    <!--更新对象,根据查询条件更新-->
+    <update id="updateByMap">
+        update oc_order_eval
+        <set>
+            <foreach collection="um" index="key" item="value" separator=",">
+                ${key} = #{value}
+            </foreach>
+        </set>
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </update>
+
+    <!--根据查询条件删除记录-->
+    <delete id="delete">
+        delete from oc_order_eval
+        <where>
+            <include refid="where_sql" />
+        </where>
+    </delete>
+
+    <!--根据主键删除对象-->
+    <delete id="deleteById">
+        delete from oc_order_eval
+        <where>
+            AND comment_id = #{commentId}
+        </where>
+    </delete>
+
+    <!-- 批量删除对象 -->
+    <delete id="deleteBatchIds">
+        delete from oc_order_eval
+        <where>
+            comment_id in
+            <foreach collection="list" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </where>
+    </delete>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~ custom code begin ~~~~~~~~~~~~~~~~~~~~~~-->
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~ custom code end ~~~~~~~~~~~~~~~~~~~~~~-->
+
+</mapper>
